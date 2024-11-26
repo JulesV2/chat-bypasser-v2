@@ -85,43 +85,33 @@
 <body>
     <div class="container">
         <h1>Roblox Chat Bypasser - Website</h1>
-        <textarea id="inputText" placeholder="Type here to bypass"></textarea>
+        <textarea id="inputText" placeholder="Bypass NOW"></textarea>
         <button onclick="convertAndDisplay()">Bypass</button>
         <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
-        <p id="outputText"></p>
+        <p id="outputText"></p> <!-- This will display the converted text -->
     </div>
     <script>
-        // Map normal letters to the special underlined characters
         const charMap = {
-            'A': 'Ạ̲', 'B': 'Ḅ̲', 'C': 'С̲', 'D': 'Ḍ̲', 'E': 'Ẹ̲',
-            'F': 'F̲', 'G': 'Ģ̲', 'H': 'Ḥ̲', 'I': 'Ị̲', 'J': 'J̲',
-            'K': 'Ḳ̲', 'L': 'Ḷ̲', 'M': 'Ṃ̲', 'N': 'Ṇ̲', 'O': 'Ọ̲',
-            'P': 'Р̲', 'Q': 'Q̲', 'R': 'Ṛ̲', 'S': 'Ṣ̲', 'T': 'Ṭ̲',
-            'U': 'Ụ̲', 'V': 'Ṿ̲', 'W': 'Ẉ̲', 'X': 'Х̲', 'Y': 'Ỵ̲',
-            'Z': 'Ẓ̲', ' ': ' ', // Space remains as is
-            'a': 'Ạ̲', 'b': 'Ḅ̲', 'c': 'С̲', 'd': 'Ḍ̲', 'e': 'Ẹ̲',
-            'f': 'F̲', 'g': 'Ģ̲', 'h': 'Ḥ̲', 'i': 'Ị̲', 'j': 'J̲',
-            'k': 'Ḳ̲', 'l': 'Ḷ̲', 'm': 'Ṃ̲', 'n': 'Ṇ̲', 'o': 'Ọ̲',
-            'p': 'Р̲', 'q': 'Q̲', 'r': 'Ṛ̲', 's': 'Ṣ̲', 't': 'Ṭ̲',
-            'u': 'Ụ̲', 'v': 'Ṿ̲', 'w': 'Ẉ̲', 'x': 'Х̲', 'y': 'Ỵ̲',
-            'z': 'Ẓ̲'
+            'A': 'Ạ̲', 'B': 'Ḅ̲', 'C': 'С̲', 'D': 'Ḍ̲', 'E': 'Ẹ̲', 'F': 'Ḟ̲', 'G': 'Ģ̲',
+            'H': 'Ḥ̲', 'I': 'Ị̲', 'J': 'Ј̲', 'K': 'Ḳ̲', 'L': 'Ḷ̲', 'M': 'Ṃ̲', 'N': 'Ṇ̲',
+            'O': 'Ọ̲', 'P': 'Р̲', 'Q': 'Q̲', 'R': 'Ṛ̲', 'S': 'Ṣ̲', 'T': 'Ṭ̲', 'U': 'Ụ̲',
+            'V': 'Ṿ̲', 'W': 'Ẉ̲', 'X': 'Х̲', 'Y': 'Ỵ̲', 'Z': 'Ẓ̲',
+            'a': 'ạ̲', 'b': 'ḅ̲', 'c': 'с̲', 'd': 'ḍ̲', 'e': 'ẹ̲', 'f': 'ḟ̲', 'g': 'ɡ̲',
+            'h': 'ḥ̲', 'i': 'ị̲', 'j': 'ј̲', 'k': 'ḳ̲', 'l': 'ḷ̲', 'm': 'ṃ̲', 'n': 'ṇ̲',
+            'o': 'ọ̲', 'p': 'р̲', 'q': 'q̲', 'r': 'ṛ̲', 's': 'ṣ̲', 't': 'ṭ̲', 'u': 'ụ̲',
+            'v': 'ṿ̲', 'w': 'ẉ̲', 'x': 'х̲', 'y': 'ỵ̲', 'z': 'ẓ̲'
         };
 
         function convertAndDisplay() {
             const input = document.getElementById('inputText').value;
-            let convertedText = '';
-
-            // Convert each character using the map
-            for (const char of input) {
-                convertedText += charMap[char] || char; // Use original char if no mapping exists
-            }
-
+            const convertedText = Array.from(input).map(char => charMap[char] || char).join('');
+            
             // Display the converted text
             document.getElementById('outputText').textContent = "Output: " + convertedText;
 
             // Copy to clipboard
             navigator.clipboard.writeText(convertedText).then(() => {
-                alert('Copied! Paste in Roblox NOW!');
+                alert('Copied! Paste in roblox NOW!');
             }).catch((err) => {
                 alert('Failed to copy text: ' + err);
             });
