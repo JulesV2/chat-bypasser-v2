@@ -1,1 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roblox Chat Bypasser - Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            transition: background-color 0.3s ease;
+        }
+        .container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            padding: 20px;
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        textarea {
+            width: calc(100% - 22px);
+            height: 250px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        p {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+        .dark-mode {
+            background-color: #333;
+            color: #f0f0f0;
+        }
+        .dark-mode textarea {
+            background-color: #555;
+            color: #f0f0f0;
+            border: 1px solid #444;
+        }
+        .dark-mode button {
+            background-color: #444;
+        }
+        .dark-mode button:hover {
+            background-color: #222;
+        }
+        .dark-mode h1 {
+            color: #fff;
+        }
+        .dark-mode p {
+            color: #f0f0f0; /* Output text color in dark mode */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Roblox Chat Bypasser - Website</h1>
+        <textarea id="inputText" placeholder="Type here to bypass"></textarea>
+        <button onclick="convertAndDisplay()">Bypass</button>
+        <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
+        <p id="outputText"></p>
+    </div>
+    <script>
+        // Map normal letters to the special underlined characters
+        const charMap = {
+            'A': 'Ạ̲', 'B': 'Ḅ̲', 'C': 'С̲', 'D': 'Ḍ̲', 'E': 'Ẹ̲',
+            'F': 'F̲', 'G': 'Ģ̲', 'H': 'Ḥ̲', 'I': 'Ị̲', 'J': 'J̲',
+            'K': 'Ḳ̲', 'L': 'Ḷ̲', 'M': 'Ṃ̲', 'N': 'Ṇ̲', 'O': 'Ọ̲',
+            'P': 'Р̲', 'Q': 'Q̲', 'R': 'Ṛ̲', 'S': 'Ṣ̲', 'T': 'Ṭ̲',
+            'U': 'Ụ̲', 'V': 'Ṿ̲', 'W': 'Ẉ̲', 'X': 'Х̲', 'Y': 'Ỵ̲',
+            'Z': 'Ẓ̲', ' ': ' ', // Space remains as is
+            'a': 'Ạ̲', 'b': 'Ḅ̲', 'c': 'С̲', 'd': 'Ḍ̲', 'e': 'Ẹ̲',
+            'f': 'F̲', 'g': 'Ģ̲', 'h': 'Ḥ̲', 'i': 'Ị̲', 'j': 'J̲',
+            'k': 'Ḳ̲', 'l': 'Ḷ̲', 'm': 'Ṃ̲', 'n': 'Ṇ̲', 'o': 'Ọ̲',
+            'p': 'Р̲', 'q': 'Q̲', 'r': 'Ṛ̲', 's': 'Ṣ̲', 't': 'Ṭ̲',
+            'u': 'Ụ̲', 'v': 'Ṿ̲', 'w': 'Ẉ̲', 'x': 'Х̲', 'y': 'Ỵ̲',
+            'z': 'Ẓ̲'
+        };
 
+        function convertAndDisplay() {
+            const input = document.getElementById('inputText').value;
+            let convertedText = '';
+
+            // Convert each character using the map
+            for (const char of input) {
+                convertedText += charMap[char] || char; // Use original char if no mapping exists
+            }
+
+            // Display the converted text
+            document.getElementById('outputText').textContent = "Output: " + convertedText;
+
+            // Copy to clipboard
+            navigator.clipboard.writeText(convertedText).then(() => {
+                alert('Copied! Paste in Roblox NOW!');
+            }).catch((err) => {
+                alert('Failed to copy text: ' + err);
+            });
+        }
+
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            document.querySelector('.container').classList.toggle('dark-mode');
+        }
+    </script>
+</body>
+</html>
