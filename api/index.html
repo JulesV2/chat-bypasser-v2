@@ -4,6 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>API - Chat Bypasser</title>
+    <style>
+        body {
+            font-family: monospace;
+            background-color: #1e1e1e;
+            color: #dcdcdc;
+            white-space: pre-wrap;
+            padding: 20px;
+        }
+    </style>
     <script>
         const charMap = {
             'A': 'Ạ̲', 'B': 'Ḅ̲', 'C': 'С̲', 'D': 'Ḍ̲', 'E': 'Ẹ̲', 'F': 'Ḟ̲', 'G': 'Ģ̲',
@@ -27,12 +36,21 @@
 
             if (inputText) {
                 const convertedText = convertText(inputText);
-                response = { success: true, input: inputText, output: convertedText };
+                response = {
+                    status: true,
+                    result: [
+                        { response: convertedText }
+                    ]
+                };
             } else {
-                response = { success: false, error: 'Missing "text" query parameter.' };
+                response = {
+                    status: false,
+                    result: [
+                        { error: 'Missing "text" query parameter.' }
+                    ]
+                };
             }
-
-            document.body.innerText = JSON.stringify(response, null, 2);
+            document.body.textContent = JSON.stringify(response, null, 4);
         }
 
         window.onload = handleRequest;
