@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API - Chat Bypasser</title>
+    <script>
+        const charMap = {
+            'A': 'Ạ̲', 'B': 'Ḅ̲', 'C': 'С̲', 'D': 'Ḍ̲', 'E': 'Ẹ̲', 'F': 'Ḟ̲', 'G': 'Ģ̲',
+            'H': 'Ḥ̲', 'I': 'Ị̲', 'J': 'Ј̲', 'K': 'Ḳ̲', 'L': 'Ḷ̲', 'M': 'Ṃ̲', 'N': 'Ṇ̲',
+            'O': 'Ọ̲', 'P': 'Р̲', 'Q': 'Q̲', 'R': 'Ṛ̲', 'S': 'Ṣ̲', 'T': 'Ṭ̲', 'U': 'Ụ̲',
+            'V': 'Ṿ̲', 'W': 'Ẉ̲', 'X': 'Х̲', 'Y': 'Ỵ̲', 'Z': 'Ẓ̲',
+            'a': 'ạ̲', 'b': 'ḅ̲', 'c': 'с̲', 'd': 'ḍ̲', 'e': 'ẹ̲', 'f': 'ḟ̲', 'g': 'ɡ̲',
+            'h': 'ḥ̲', 'i': 'ị̲', 'j': 'ј̲', 'k': 'ḳ̲', 'l': 'ḷ̲', 'm': 'ṃ̲', 'n': 'ṇ̲',
+            'o': 'ọ̲', 'p': 'р̲', 'q': 'q̲', 'r': 'ṛ̲', 's': 'ṣ̲', 't': 'ṭ̲', 'u': 'ụ̲',
+            'v': 'ṿ̲', 'w': 'ẉ̲', 'x': 'х̲', 'y': 'ỵ̲', 'z': 'ẓ̲'
+        };
+
+        function convertText(text) {
+            return Array.from(text).map(char => charMap[char] || char).join('');
+        }
+
+        function handleRequest() {
+            const params = new URLSearchParams(window.location.search);
+            const inputText = params.get('text');
+            if (inputText) {
+                const convertedText = convertText(inputText);
+                document.body.innerText = convertedText; // API output
+            } else {
+                document.body.innerText = 'Error: Missing "text" query parameter.';
+            }
+        }
+
+        window.onload = handleRequest;
+    </script>
+</head>
+<body>
+</body>
+</html>
