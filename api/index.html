@@ -10,6 +10,7 @@
             background-color: #1e1e1e;
             color: #dcdcdc;
             white-space: pre-wrap;
+            margin: 0;
             padding: 20px;
         }
     </style>
@@ -50,6 +51,8 @@
                     ]
                 };
             }
+
+            // Render the response as pretty-printed JSON
             document.body.textContent = JSON.stringify(response, null, 4);
         }
 
