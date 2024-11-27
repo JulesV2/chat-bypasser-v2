@@ -23,12 +23,16 @@
         function handleRequest() {
             const params = new URLSearchParams(window.location.search);
             const inputText = params.get('text');
+            let response;
+
             if (inputText) {
                 const convertedText = convertText(inputText);
-                document.body.innerText = convertedText; // API output
+                response = { success: true, input: inputText, output: convertedText };
             } else {
-                document.body.innerText = 'Error: Missing "text" query parameter.';
+                response = { success: false, error: 'Missing "text" query parameter.' };
             }
+
+            document.body.innerText = JSON.stringify(response, null, 2);
         }
 
         window.onload = handleRequest;
