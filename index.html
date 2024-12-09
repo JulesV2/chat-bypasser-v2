@@ -92,20 +92,21 @@
     </div>
     <script>
         const charMap = {
-            'A': 'Ạ̲', 'B': 'Ḅ̲', 'C': 'С̲', 'D': 'Ḍ̲', 'E': 'Ẹ̲', 'F': 'Ḟ̲', 'G': 'Ģ̲',
-            'H': 'Ḥ̲', 'I': 'Ị̲', 'J': 'Ј̲', 'K': 'Ḳ̲', 'L': 'Ḷ̲', 'M': 'Ṃ̲', 'N': 'Ṇ̲',
-            'O': 'Ọ̲', 'P': 'Р̲', 'Q': 'Q̲', 'R': 'Ṛ̲', 'S': 'Ṣ̲', 'T': 'Ṭ̲', 'U': 'Ụ̲',
-            'V': 'Ṿ̲', 'W': 'Ẉ̲', 'X': 'Х̲', 'Y': 'Ỵ̲', 'Z': 'Ẓ̲',
-            'a': 'ạ̲', 'b': 'ḅ̲', 'c': 'с̲', 'd': 'ḍ̲', 'e': 'ẹ̲', 'f': 'ḟ̲', 'g': 'ɡ̲',
-            'h': 'ḥ̲', 'i': 'ị̲', 'j': 'ј̲', 'k': 'ḳ̲', 'l': 'ḷ̲', 'm': 'ṃ̲', 'n': 'ṇ̲',
-            'o': 'ọ̲', 'p': 'р̲', 'q': 'q̲', 'r': 'ṛ̲', 's': 'ṣ̲', 't': 'ṭ̲', 'u': 'ụ̲',
-            'v': 'ṿ̲', 'w': 'ẉ̲', 'x': 'х̲', 'y': 'ỵ̲', 'z': 'ẓ̲'
+            'A': 'A<', 'B': 'B<', 'C': 'C<', 'D': 'D<', 'E': 'E<', 'F': 'F<', 'G': 'G<',
+            'H': 'H<', 'I': 'I<', 'J': 'J<', 'K': 'K<', 'L': 'L<', 'M': 'M<', 'N': 'N<',
+            'O': 'O<', 'P': 'P<', 'Q': 'Q<', 'R': 'R<', 'S': 'S<', 'T': 'T<', 'U': 'U<',
+            'V': 'V<', 'W': 'W<', 'X': 'X<', 'Y': 'Y<', 'Z': 'Z<',
+            'a': 'a<', 'b': 'b<', 'c': 'c<', 'd': 'd<', 'e': 'e<', 'f': 'f<', 'g': 'g<',
+            'h': 'h<', 'i': 'i<', 'j': 'j<', 'k': 'k<', 'l': 'l<', 'm': 'm<', 'n': 'n<',
+            'o': 'o<', 'p': 'p<', 'q': 'q<', 'r': 'r<', 's': 's<', 't': 't<', 'u': 'u<',
+            'v': 'v<', 'w': 'w<', 'x': 'x<', 'y': 'y<', 'z': 'z<',
+            ' ': '<'  // Convert spaces to "<"
         };
 
         function convertAndDisplay() {
             const input = document.getElementById('inputText').value;
             const convertedText = Array.from(input).map(char => charMap[char] || char).join('');
-            
+
             // Display the converted text
             document.getElementById('outputText').textContent = "Output: " + convertedText;
 
